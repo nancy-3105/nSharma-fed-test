@@ -1,6 +1,34 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styled from "styled-components";
+import * as theme from "./constants/theme";
 
+const AppContainer = styled.div`
+  font-family: sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+  min-height: 700px;
+`;
+const ControlLinks = styled.div`
+  margin-bottom: ${theme.space.half};
+  background-color: ${theme.color.grey};
+  padding: 10px;
+`;
+const Header = styled.div`
+  margin-bottom: ${theme.space.half};
+  background-color: ${theme.color.grey};
+  padding: ${theme.space.half};
+`;
+const Title = styled.h3`
+  padding: ${theme.space.none};
+  margin: ${theme.space.none} ${theme.space.none} ${theme.space.quarter}
+    ${theme.space.none};
+`;
+const LoadMoreButton = styled.button`
+  padding: ${theme.space.none};
+  margin: ${theme.space.none} ${theme.space.none} ${theme.space.quarter}
+    ${theme.space.none};
+`;
 const App = () => {
   // limit is the no. of users/data needs to be fetched
   const LIMIT = 5;
@@ -40,14 +68,19 @@ const App = () => {
   };
 
   return (
-    <div>
-      <div>Products</div>
-      <button onClick={(e) => doLoadMore(e)}>Load More</button>
+    <AppContainer>
+      <Header>
+        <Title>Products</Title>
+      </Header>
+      <ControlLinks>
+        <LoadMoreButton onClick={(e) => doLoadMore(e)}>
+          Load More
+        </LoadMoreButton>
+      </ControlLinks>
       {users.map((user, i) => (
         <div key={i}>{user.name.first} </div>
       ))}
-    </div>
+    </AppContainer>
   );
 };
-
 export default App;
