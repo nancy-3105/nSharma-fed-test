@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import * as theme from "./constants/theme";
+import { UserCardsGrid } from "../src/components/UserCardsGrid";
 
 const AppContainer = styled.div`
   font-family: sans-serif;
@@ -77,9 +78,7 @@ const App = () => {
           Load More
         </LoadMoreButton>
       </ControlLinks>
-      {users.map((user, i) => (
-        <div key={i}>{user.name.first} </div>
-      ))}
+      <UserCardsGrid data-ref="user-cards-grid" users={users} />
     </AppContainer>
   );
 };

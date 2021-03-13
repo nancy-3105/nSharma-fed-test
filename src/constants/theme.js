@@ -19,5 +19,6 @@ export const space = {
 };
 
 export const color = {
-  grey: "#dedede"
+  grey: "#dedede",
+  white: "#FFFFFF"
 };

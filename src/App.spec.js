@@ -14,4 +14,9 @@ describe("the App", () => {
   it("should render without crashing", () => {
     expect(wrapper.exists()).toBe(true);
   });
+
+  it("renders the userCards grid component in app folder", () => {
+    const userCardsGrid = wrapper.find('[data-ref="user-cards-grid"]');
+    expect(userCardsGrid.exists()).toBe(true);
+  });
 });
